@@ -24,8 +24,11 @@ export default function App() {
         <Button title="ADD" onPress={addJobHandler} />
       </View>
       <View>
-        {allJobs.map((job) => <Text>{job}</Text>
-        )}
+        {allJobs.map(job => (
+          <View key={job} style={styles.listItem}>
+            <Text>{job}</Text>
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -44,6 +47,14 @@ const styles = StyleSheet.create({
     width: "80%",
     borderColor: "black",
     borderWidth: 1,
-    padding: 10
+    padding: 10,
+    marginBottom: 5
+  },
+  listItem: {
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: "lightgrey",
+    borderColor: "black",
+    borderWidth: 1
   }
 });
