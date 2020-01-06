@@ -3,14 +3,15 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 
 export default function App() {
   const [enteredJob, setEnteredJob] = useState("");
+  const [allJobs, setallJobs] = useState([]);
 
   const jobInputHandler = enteredText => {
     setEnteredJob(enteredText);
   };
 
   const addJobHandler = () => {
-    console.log(enteredJob)
-  }
+    setallJobs([...allJobs, enteredJob]);
+  };
   return (
     <View style={styles.screen}>
       <View style={styles.inputContainer}>
@@ -22,7 +23,10 @@ export default function App() {
         />
         <Button title="ADD" onPress={addJobHandler} />
       </View>
-      <View />
+      <View>
+        {allJobs.map((job) => <Text>{job}</Text>
+        )}
+      </View>
     </View>
   );
 }
