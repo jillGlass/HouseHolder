@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 
 export default function App() {
+  const [enteredJob, setEnteredJob] = useState("");
+
+  const jobInputHandler = enteredText => {
+    setEnteredJob(enteredText);
+  };
+
+  const addJobHandler = () => {
+    console.log(enteredJob)
+  }
   return (
     <View style={styles.screen}>
       <View style={styles.inputContainer}>
-        <TextInput placeholder="Enter Job" style={styles.input} />
-        <Button title="ADD" />
+        <TextInput
+          placeholder="Enter Job"
+          style={styles.input}
+          onChangeText={jobInputHandler}
+          value={enteredJob}
+        />
+        <Button title="ADD" onPress={addJobHandler} />
       </View>
       <View />
     </View>
