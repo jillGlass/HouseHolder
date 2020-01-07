@@ -14,6 +14,8 @@ export default function App() {
   };
   return (
     <View style={styles.screen}>
+      <Text style={styles.title}>The Work We Do</Text>
+
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Enter Job"
@@ -56,5 +58,11 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     borderColor: "black",
     borderWidth: 1
+  },
+  title: {
+    marginTop: 10,
+    marginBottom: 15,
+    fontFamily: 'roboto',
+    fontSize: 25,
   }
 });
