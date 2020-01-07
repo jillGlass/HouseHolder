@@ -23,7 +23,12 @@ export default function App() {
           onChangeText={jobInputHandler}
           value={enteredJob}
         />
-        <Button title="ADD" onPress={addJobHandler} />
+      </View>
+      <View>
+      <Button 
+      title="ADD" 
+      style={styles.addBtn}
+      onPress={addJobHandler} />
       </View>
       <View>
         {allJobs.map(job => (
@@ -43,7 +48,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: 'flex-start'
   },
   input: {
     width: "80%",
@@ -63,6 +68,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 15,
     fontFamily: 'roboto',
-    fontSize: 25,
+    fontSize: 25
+  },
+  addBtn: {
+    flexDirection: "column",
+    alignItems: 'flex-start'
+
   }
 });
