@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 10,
     marginBottom: 30,
-    fontFamily: "roboto",
     fontSize: 25
   },
   addBtn: {
