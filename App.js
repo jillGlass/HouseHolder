@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 export default function App() {
   const [enteredJob, setEnteredJob] = useState("");
   const [allJobs, setallJobs] = useState([]);
+  const [timeTaken, setTimeTaken] = useState(0)
 
   const jobInputHandler = enteredText => {
     setEnteredJob(enteredText);
@@ -23,13 +24,11 @@ export default function App() {
           onChangeText={jobInputHandler}
           value={enteredJob}
         />
+         <Button title="ADD"
+         style={styles.addBtn} 
+         onPress={addJobHandler} />
       </View>
-      <View>
-      <Button 
-      title="ADD" 
-      style={styles.addBtn}
-      onPress={addJobHandler} />
-      </View>
+     
       <View>
         {allJobs.map(job => (
           <View key={job} style={styles.listItem}>
@@ -48,7 +47,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: 'flex-start'
+    alignItems: "flex-start"
   },
   input: {
     width: "80%",
@@ -66,13 +65,12 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: 10,
-    marginBottom: 15,
-    fontFamily: 'roboto',
+    marginBottom: 30,
+    fontFamily: "roboto",
     fontSize: 25
   },
   addBtn: {
-    flexDirection: "column",
-    alignItems: 'flex-start'
-
+    borderColor: "black",
+    borderWidth: 1
   }
 });
