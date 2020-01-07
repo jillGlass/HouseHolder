@@ -13,6 +13,11 @@ export default function App() {
   const addJobHandler = () => {
     setallJobs([...allJobs, enteredJob]);
   };
+
+  const removeJobHandler = () => {
+    //enter js that removes an item
+  }
+
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Work We Do</Text>
@@ -33,8 +38,11 @@ export default function App() {
         {allJobs.map(job => (
           <View key={job} style={styles.listItem}>
             <Text>{job}</Text>
-          </View>
+            </View>
         ))}
+        <Button title="X"
+            style={styles.removeBtn}
+            onPress={removeJobHandler} />
       </View>
     </View>
   );
@@ -70,6 +78,10 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   addBtn: {
+    borderColor: "black",
+    borderWidth: 1
+  },
+  removeBtn: {
     borderColor: "black",
     borderWidth: 1
   }
