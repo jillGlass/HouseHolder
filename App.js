@@ -14,10 +14,10 @@ export default function App() {
     setallJobs([...allJobs, enteredJob]);
   };
 
-  const removeJobHandler = () => {
-    //enter js that removes an item
+  const removeJobHandler = (e) => {
+    setallJobs(enteredJob.filter(item => item === enteredJob))
   }
-
+  
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Work We Do</Text>
