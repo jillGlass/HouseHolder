@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { StyleSheet, Text, View, Button, TextInput, ScrollView } from "react-native";
 
 export default function App() {
   const [enteredJob, setEnteredJob] = useState("");
@@ -34,14 +34,14 @@ export default function App() {
          onPress={addJobHandler} />
       </View>
      
-      <View>
+      <ScrollView>
         {allJobs.map(job => (
           <View key={job} style={styles.listItem}>
             <Text>{job}</Text>
             </View>
         ))}
       
-      </View>
+      </ScrollView>
     </View>
   );
 }
