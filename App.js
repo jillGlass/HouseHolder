@@ -40,9 +40,7 @@ export default function App() {
             <Text>{job}</Text>
             </View>
         ))}
-        <Button title="X"
-            style={styles.removeBtn}
-            onPress={removeJobHandler} />
+      
       </View>
     </View>
   );
@@ -65,6 +63,7 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   listItem: {
+    width: "80%",
     padding: 10,
     marginTop: 10,
     backgroundColor: "lightgrey",
@@ -80,8 +79,5 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 1
   },
-  removeBtn: {
-    borderColor: "black",
-    borderWidth: 1
-  }
+  
 });
