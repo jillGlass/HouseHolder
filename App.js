@@ -20,7 +20,7 @@ export default function App() {
   const addJobHandler = () => {
     setallJobs(currentJobs => [
       ...currentJobs,
-      { key: Math.random().toString(), value: enteredJob }
+      { id: Math.random().toString(), value: enteredJob }
     ]);
   };
 
