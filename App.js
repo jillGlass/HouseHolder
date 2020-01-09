@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import JobItem from "./components/JobItem";
+import JobInput from './components/JobItem'
 import {
   StyleSheet,
   Text,
