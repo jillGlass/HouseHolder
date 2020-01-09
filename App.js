@@ -39,6 +39,7 @@ export default function App() {
       </View>
 
       <FlatList
+      keyExtractor={(item, index) => item.id}
         data={allJobs}
         renderItem={itemData => (
           <View style={styles.listItem}>
