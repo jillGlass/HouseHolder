@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import JobItem from "./components/JobItem";
 import {
   StyleSheet,
   Text,
@@ -39,13 +40,9 @@ export default function App() {
       </View>
 
       <FlatList
-      keyExtractor={(item, index) => item.id}
+        keyExtractor={(item, index) => item.id}
         data={allJobs}
-        renderItem={itemData => (
-          <View style={styles.listItem}>
-            <Text>{itemData.item.value}</Text>
-          </View>
-        )}
+        renderItem={itemData => <JobItem title={itemData.item.value}/>}
       />
     </View>
   );
@@ -66,14 +63,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     marginBottom: 5
-  },
-  listItem: {
-    width: "80%",
-    padding: 10,
-    marginTop: 10,
-    backgroundColor: "lightgrey",
-    borderColor: "black",
-    borderWidth: 1
   },
   title: {
     marginTop: 10,
