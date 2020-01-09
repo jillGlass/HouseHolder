@@ -1,23 +1,29 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  ScrollView,
+  FlatList
+} from "react-native";
 
 export default function App() {
   const [enteredJob, setEnteredJob] = useState("");
   const [allJobs, setallJobs] = useState([]);
-  const [timeTaken, setTimeTaken] = useState(0)
 
   const jobInputHandler = enteredText => {
     setEnteredJob(enteredText);
   };
 
   const addJobHandler = () => {
-    setallJobs([...allJobs, enteredJob]);
+    setallJobs(currentJobs => [
+      ...currentJobs,
+      { key: Math.random().toString(), value: enteredJob }
+    ]);
   };
 
-  const removeJobHandler = (e) => {
-    setallJobs(enteredJob.filter(item => item === enteredJob))
-  }
-  
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Work We Do</Text>
@@ -29,19 +35,18 @@ export default function App() {
           onChangeText={jobInputHandler}
           value={enteredJob}
         />
-         <Button title="ADD"
-         style={styles.addBtn} 
-         onPress={addJobHandler} />
+        <Button title="ADD" style={styles.addBtn} onPress={addJobHandler} />
       </View>
-     
-      <View>
-        {allJobs.map(job => (
-          <View key={job} style={styles.listItem}>
-            <Text>{job}</Text>
-            </View>
-        ))}
-      
-      </View>
+
+      <FlatList
+      keyExtractor={(item, index) => item.id}
+        data={allJobs}
+        renderItem={itemData => (
+          <View style={styles.listItem}>
+            <Text>{itemData.item.value}</Text>
+          </View>
+        )}
+      />
     </View>
   );
 }
@@ -78,6 +83,5 @@ const styles = StyleSheet.create({
   addBtn: {
     borderColor: "black",
     borderWidth: 1
-  },
-  
+  }
 });
