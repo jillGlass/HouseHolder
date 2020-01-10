@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import JobItem from "./components/JobItem";
-import JobInput from './components/JobItem'
+import JobInput from './components/JobInput'
 import {
   StyleSheet,
   Text,
@@ -29,16 +29,8 @@ export default function App() {
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Work We Do</Text>
-
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Enter Job"
-          style={styles.input}
-          onChangeText={jobInputHandler}
-          value={enteredJob}
-        />
-        <Button title="ADD" style={styles.addBtn} onPress={addJobHandler} />
-      </View>
+<JobInput />
+    
 
       <FlatList
         keyExtractor={(item, index) => item.id}
