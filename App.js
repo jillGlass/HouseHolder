@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import JobItem from "./components/JobItem";
-import JobInput from './components/JobInput'
+import JobInput from "./components/JobInput";
 import {
   StyleSheet,
   Text,
@@ -12,30 +12,24 @@ import {
 } from "react-native";
 
 export default function App() {
-  const [enteredJob, setEnteredJob] = useState("");
-  const [allJobs, setallJobs] = useState([]);
+  const [allJobs, setAllJobs] = useState([]);
 
-  const jobInputHandler = enteredText => {
-    setEnteredJob(enteredText);
-  };
-
-  const addJobHandler = () => {
-    setallJobs(currentJobs => [
+  const addJobHandler = jobTitle => {
+    setAllJobs(currentJobs => [
       ...currentJobs,
-      { id: Math.random().toString(), value: enteredJob }
+      { id: Math.random().toString(), value: jobTitle }
     ]);
   };
 
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Work We Do</Text>
-<JobInput />
-    
+      <JobInput onAddJob={addJobHandler}/>
 
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={allJobs}
-        renderItem={itemData => <JobItem title={itemData.item.value}/>}
+        renderItem={itemData => <JobItem title={itemData.item.value} />}
       />
     </View>
   );
@@ -44,18 +38,6 @@ export default function App() {
 const styles = StyleSheet.create({
   screen: {
     padding: 50
-  },
-  inputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start"
-  },
-  input: {
-    width: "80%",
-    borderColor: "black",
-    borderWidth: 1,
-    padding: 10,
-    marginBottom: 5
   },
   title: {
     marginTop: 10,
