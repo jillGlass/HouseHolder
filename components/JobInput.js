@@ -15,7 +15,7 @@ const JobInput = props => {
         onChangeText={jobInputHandler}
         value={enteredJob}
       />
-      <Button title="ADD" style={styles.addBtn} onPress={() => props.onAddJob(enteredJob)} />
+      <Button title="ADD" style={styles.addBtn} onPress={() => props.onAddJob(jobTitle)} />
     </View>
   );
 };
