@@ -6,19 +6,19 @@ import {
   Text,
   View,
   Button,
-  TextInput,
-  ScrollView,
   FlatList
 } from "react-native";
 
 export default function App() {
   const [allJobs, setAllJobs] = useState([]);
+  const [isAddMode, setIsAddMode] = useState(false)
 
   const addJobHandler = jobTitle => {
     setAllJobs(currentJobs => [
       ...currentJobs,
       { id: Math.random().toString(), value: jobTitle }
     ]);
+    setIsAddMode(false)
   };
 
   const removeJobHandler = jobId => {
@@ -29,8 +29,8 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.title}>The Work We Do</Text>
-      <JobInput onAddJob={addJobHandler}/>
+      <Button title="Add New Job" onPress={() => setIsAddMode(true)}/>
+      <JobInput visible={isAddMode} onAddJob={addJobHandler}/>
 
       <FlatList
         keyExtractor={(item, index) => item.id}

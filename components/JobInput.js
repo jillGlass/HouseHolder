@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, TextInput, Button, StyleSheet} from "react-native";
+import {View, TextInput, Button, StyleSheet, Modal, Slider} from "react-native";
 
 
 const JobInput = props => {
@@ -8,6 +8,7 @@ const JobInput = props => {
         setEnteredJob(enteredText);
       };
   return (
+      <Modal visible={props.visible} animationType="slide" >
     <View style={styles.inputContainer}>
       <TextInput
         placeholder="Enter Job"
@@ -17,14 +18,16 @@ const JobInput = props => {
       />
       <Button title="ADD" style={styles.addBtn} onPress={() => props.onAddJob(enteredJob)} />
     </View>
+    </Modal>
   );
 };
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start"
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 10,
   },
   input: {
     width: "80%",
