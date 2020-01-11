@@ -21,6 +21,12 @@ export default function App() {
     ]);
   };
 
+  const removeJobHandler = jobId => {
+    setAllJobs(currentJobs => {
+      return currentJobs.filter((job) => job.id !== jobId)
+    })
+  }
+
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>The Work We Do</Text>
@@ -29,7 +35,7 @@ export default function App() {
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={allJobs}
-        renderItem={itemData => <JobItem title={itemData.item.value} />}
+        renderItem={itemData => <JobItem id={itemData.item.id} onDelete={removeJobHandler} title={itemData.item.value} />}
       />
     </View>
   );

@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const JobItem = props => {
   return (
-    <View style={styles.listItem}>
+    <TouchableOpacity activeOpacity={0.6} onPress={props.onDelete.bind(this, props.id)} style={styles.listItem}>
       <Text>{props.title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
