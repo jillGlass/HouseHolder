@@ -8,7 +8,7 @@ const JobInput = props => {
         setEnteredJob(enteredText);
       };
   return (
-      <Modal visible={false}>
+      <Modal visible={props.visible}>
     <View style={styles.inputContainer}>
       <TextInput
         placeholder="Enter Job"

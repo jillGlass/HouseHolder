@@ -11,6 +11,7 @@ import {
 
 export default function App() {
   const [allJobs, setAllJobs] = useState([]);
+  const [isAddMode, setIsAddMode] = useState(false)
 
   const addJobHandler = jobTitle => {
     setAllJobs(currentJobs => [
@@ -27,8 +28,8 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <Button title="Add New Job" onPress={}/>
-      <JobInput onAddJob={addJobHandler}/>
+      <Button title="Add New Job" onPress={() => setIsAddMode(true)}/>
+      <JobInput visible={isAddMode} onAddJob={addJobHandler}/>
 
       <FlatList
         keyExtractor={(item, index) => item.id}
