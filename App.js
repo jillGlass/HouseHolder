@@ -29,7 +29,7 @@ export default function App() {
       <FlatList
         keyExtractor={(item, index) => item.id}
         data={allJobs}
-        renderItem={itemData => <JobItem title={itemData.item.value} />}
+        renderItem={itemData => <JobItem onDelete={() => console.log("does that work")} title={itemData.item.value} />}
       />
     </View>
   );
