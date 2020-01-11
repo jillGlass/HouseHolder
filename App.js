@@ -6,8 +6,6 @@ import {
   Text,
   View,
   Button,
-  TextInput,
-  ScrollView,
   FlatList
 } from "react-native";
 
@@ -29,7 +27,7 @@ export default function App() {
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.title}>The Work We Do</Text>
+      <Button title="Add New Job" onPress={}/>
       <JobInput onAddJob={addJobHandler}/>
 
       <FlatList

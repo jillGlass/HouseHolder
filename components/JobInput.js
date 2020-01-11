@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {View, TextInput, Button, StyleSheet} from "react-native";
+import {View, TextInput, Button, StyleSheet, Modal} from "react-native";
 
 
 const JobInput = props => {
@@ -8,6 +8,7 @@ const JobInput = props => {
         setEnteredJob(enteredText);
       };
   return (
+      <Modal visible={false}>
     <View style={styles.inputContainer}>
       <TextInput
         placeholder="Enter Job"
@@ -17,6 +18,7 @@ const JobInput = props => {
       />
       <Button title="ADD" style={styles.addBtn} onPress={() => props.onAddJob(enteredJob)} />
     </View>
+    </Modal>
   );
 };
 
