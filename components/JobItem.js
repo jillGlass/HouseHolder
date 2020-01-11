@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const JobItem = props => {
   return (
-    <TouchableOpacity onPress={props.onDelete} style={styles.listItem}>
+    <TouchableOpacity activeOpacity={0.6} onPress={props.onDelete} style={styles.listItem}>
       <Text>{props.title}</Text>
     </TouchableOpacity>
   );
