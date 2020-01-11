@@ -29,8 +29,12 @@ const JobInput = props => {
           value={enteredJob}
         />
         <View style={styles.buttonContainer}>
-        <Button style={styles.red} title="CANCEL" onPress={props.onCancel}/>
-        <Button title="ADD" onPress={addJobHandler} />
+          <View style={styles.button}>
+            <Button color="red" title="CANCEL" onPress={props.onCancel} />
+          </View>
+          <View style={styles.button}>
+            <Button style={styles.addBtn} title="ADD" onPress={addJobHandler} />
+          </View>
         </View>
       </View>
     </Modal>
@@ -52,12 +56,12 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   buttonContainer: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      width: '60%'
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "60%"
   },
-  red: {
-    color: 'red',
-  },
+  button: {
+    width: "40%"
+  }
 });
 export default JobInput;
