@@ -18,6 +18,7 @@ export default function App() {
       ...currentJobs,
       { id: Math.random().toString(), value: jobTitle }
     ]);
+    setIsAddMode(false)
   };
 
   const removeJobHandler = jobId => {
