@@ -28,8 +28,8 @@ const JobInput = props => {
           onChangeText={jobInputHandler}
           value={enteredJob}
         />
-        <Button title="CANCEL" color="red" />
-        <Button title="ADD" style={styles.addBtn} onPress={addJobHandler} />
+        <Button style={styles.red} title="CANCEL" onPress={props.onCancel}/>
+        <Button title="ADD" onPress={addJobHandler} />
       </View>
     </Modal>
   );
@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     marginBottom: 5
-  }
+  },
+  red: {
+    color: 'red',
+  },
 });
 export default JobInput;
