@@ -28,6 +28,7 @@ const JobInput = props => {
           onChangeText={jobInputHandler}
           value={enteredJob}
         />
+        <Button title="CANCEL" color="red" />
         <Button title="ADD" style={styles.addBtn} onPress={addJobHandler} />
       </View>
     </Modal>
