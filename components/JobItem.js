@@ -3,7 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const JobItem = props => {
   return (
-    <TouchableOpacity activeOpacity={0.6} onPress={props.onDelete.bind(this, props.id)} style={styles.listItem}>
+    <TouchableOpacity
+      activeOpacity={0.6}
+      onPress={props.onDelete.bind(this, props.id)}
+      style={styles.listItem}
+    >
       <Text>{props.title}</Text>
     </TouchableOpacity>
   );
@@ -11,7 +15,6 @@ const JobItem = props => {
 
 const styles = StyleSheet.create({
   listItem: {
-    width: "80%",
     padding: 10,
     marginTop: 10,
     backgroundColor: "lightgrey",
