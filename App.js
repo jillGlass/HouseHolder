@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import JobItem from "./components/JobItem";
 import JobInput from "./components/JobInput";
-import { StyleSheet, Text, View, Button, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  FlatList,
+  StatusBar
+} from "react-native";
+import Constants from "expo-constants";
 
 export default function App() {
   const [allJobs, setAllJobs] = useState([]);
@@ -9,7 +17,7 @@ export default function App() {
 
   const addJobHandler = jobTitle => {
     if (jobTitle.length === 0) {
-      return
+      return;
     }
     setAllJobs(currentJobs => [
       ...currentJobs,
@@ -29,32 +37,48 @@ export default function App() {
   };
 
   return (
-    <View style={styles.screen}>
-      <Button title="Add New Job" onPress={() => setIsAddMode(true)} />
-      <JobInput
-        visible={isAddMode}
-        onAddJob={addJobHandler}
-        onCancel={cancelJobAdditionHandler}
-      />
+      <View style={styles.mainContainer}>
+    <View style={styles.StatusBar}>
+      <StatusBar translucent barStyle="light-content" />
 
-      <FlatList
-        keyExtractor={(item, index) => item.id}
-        data={allJobs}
-        renderItem={itemData => (
-          <JobItem
-            id={itemData.item.id}
-            onDelete={removeJobHandler}
-            title={itemData.item.value}
-          />
-        )}
-      />
+      <View style={styles.screen}>
+        <Button title="Add New Job" onPress={() => setIsAddMode(true)} />
+        <JobInput
+          visible={isAddMode}
+          onAddJob={addJobHandler}
+          onCancel={cancelJobAdditionHandler}
+        />
+
+        <FlatList
+          keyExtractor={(item, index) => item.id}
+          data={allJobs}
+          renderItem={itemData => (
+            <JobItem
+              id={itemData.item.id}
+              onDelete={removeJobHandler}
+              title={itemData.item.value}
+            />
+          )}
+        />
+      </View>
+    </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    backgroundColor: "#bce8c8",
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  StatusBar: {
+    backgroundColor: "#bce8c8"
+  },
   screen: {
-    padding: 50
+    padding: 50,
+    marginTop: 50
   },
   title: {
     marginTop: 10,
