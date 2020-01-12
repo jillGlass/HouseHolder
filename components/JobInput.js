@@ -44,12 +44,14 @@ const JobInput = props => {
 const styles = StyleSheet.create({
   inputContainer: {
     flex: 1,
+    backgroundColor: "#bce8c8",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 10
   },
   input: {
     width: "80%",
+    backgroundColor: '#e3e8e5',
     borderColor: "black",
     borderWidth: 1,
     padding: 10,
