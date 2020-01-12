@@ -8,6 +8,9 @@ export default function App() {
   const [isAddMode, setIsAddMode] = useState(false);
 
   const addJobHandler = jobTitle => {
+    if (jobTitle.length === 0) {
+      return
+    }
     setAllJobs(currentJobs => [
       ...currentJobs,
       { id: Math.random().toString(), value: jobTitle }
