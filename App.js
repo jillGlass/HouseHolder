@@ -52,6 +52,7 @@ export default function App() {
         <FlatList
           keyExtractor={(item, index) => item.id}
           data={allJobs}
+          style={styles.inputs}
           renderItem={itemData => (
             <JobItem
               id={itemData.item.id}
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#bce8c8"
   },
   screen: {
-    padding: 50,
+    padding: 40,
     marginTop: 50
   },
   title: {
