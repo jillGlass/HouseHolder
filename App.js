@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import JobItem from "./components/JobItem";
 import JobInput from "./components/JobInput";
+import Header from "./components/Header"
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
 import {
   StyleSheet,
   Text,
@@ -11,9 +14,26 @@ import {
 } from "react-native";
 import Constants from "expo-constants";
 
+const fetchFonts = () => {
+  return Font.loadAsync({
+  'alata-regular': require('./assets/fonts/Alata-Regular.ttf'),
+  
+  });
+  };
+
 export default function App() {
+  const [dataLoaded, setDataLoaded] = useState(false);
   const [allJobs, setAllJobs] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
+
+if(!dataLoaded) {
+  return (
+    <AppLoading
+    startAsync={fetchFonts}
+    onFinish={() => setDataLoaded(true)}
+    />
+  )
+}
 
   const addJobHandler = jobTitle => {
     if (jobTitle.length === 0) {
@@ -42,6 +62,7 @@ export default function App() {
       <StatusBar translucent barStyle="light-content" />
 
       <View style={styles.screen}>
+        <Header />
         <Button title="Add New Job" onPress={() => setIsAddMode(true)} />
         <JobInput
           visible={isAddMode}
