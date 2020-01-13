@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import JobItem from "./components/JobItem";
 import JobInput from "./components/JobInput";
-import Header from "./components/Header"
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
+import Header from "./components/Header";
+import LogoImage from "./components/LogoImage";
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
 import {
   StyleSheet,
   Text,
@@ -14,26 +15,26 @@ import {
 } from "react-native";
 import Constants from "expo-constants";
 
+
 const fetchFonts = () => {
   return Font.loadAsync({
-  'alata-regular': require('./assets/fonts/Alata-Regular.ttf'),
-  
+    "alata-regular": require("./assets/fonts/Alata-Regular.ttf")
   });
-  };
+};
 
 export default function App() {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [allJobs, setAllJobs] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
 
-if(!dataLoaded) {
-  return (
-    <AppLoading
-    startAsync={fetchFonts}
-    onFinish={() => setDataLoaded(true)}
-    />
-  )
-}
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+      />
+    );
+  }
 
   const addJobHandler = jobTitle => {
     if (jobTitle.length === 0) {
@@ -57,33 +58,34 @@ if(!dataLoaded) {
   };
 
   return (
-      <View style={styles.mainContainer}>
-    <View style={styles.StatusBar}>
-      <StatusBar translucent barStyle="light-content" />
+    <View style={styles.mainContainer}>
+      <View style={styles.StatusBar}>
+        <StatusBar translucent barStyle="light-content" />
 
-      <View style={styles.screen}>
-        <Header />
-        <Button title="Add New Job" onPress={() => setIsAddMode(true)} />
-        <JobInput
-          visible={isAddMode}
-          onAddJob={addJobHandler}
-          onCancel={cancelJobAdditionHandler}
-        />
+        <View style={styles.screen}>
+          <Header />
+          <LogoImage />
+          <Button title="Add New Job" onPress={() => setIsAddMode(true)} />
+          <JobInput
+            visible={isAddMode}
+            onAddJob={addJobHandler}
+            onCancel={cancelJobAdditionHandler}
+          />
 
-        <FlatList
-          keyExtractor={(item, index) => item.id}
-          data={allJobs}
-          style={styles.inputs}
-          renderItem={itemData => (
-            <JobItem
-              id={itemData.item.id}
-              onDelete={removeJobHandler}
-              title={itemData.item.value}
-            />
-          )}
-        />
+          <FlatList
+            keyExtractor={(item, index) => item.id}
+            data={allJobs}
+            style={styles.inputs}
+            renderItem={itemData => (
+              <JobItem
+                id={itemData.item.id}
+                onDelete={removeJobHandler}
+                title={itemData.item.value}
+              />
+            )}
+          />
+        </View>
       </View>
-    </View>
     </View>
   );
 }
@@ -92,8 +94,8 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: "#bce8c8",
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   StatusBar: {
     backgroundColor: "#bce8c8"
