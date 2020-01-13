@@ -4,20 +4,23 @@ import { View, Text, StyleSheet} from "react-native";
 const Header = () => {
   return (
     
-    <Text>HouseHolder</Text>
+    <Text style={styles.header}>HouseHolder</Text>
     
   );
 };
 
-// const styles = StyleSheet.create({
-//   listItem: {
-//     flex: 1,
-//     padding: 10,
-//     marginTop: 10,
-//     backgroundColor: "lightgrey",
-//     borderColor: "black",
-//     borderWidth: 1
-//   }
-// });
+const styles = StyleSheet.create({
+  header: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: 40,
+    paddingRight: 40,
+    paddingBottom: 40,
+    fontSize: 30,
+    color: 'grey',
+    fontFamily: 'alata-regular',
+    
+  }
+});
 
 export default Header;
