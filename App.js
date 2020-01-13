@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import JobItem from "./components/JobItem";
 import JobInput from "./components/JobInput";
+import Header from "./components/Header"
 import {
   StyleSheet,
   Text,
@@ -42,6 +43,7 @@ export default function App() {
       <StatusBar translucent barStyle="light-content" />
 
       <View style={styles.screen}>
+        <Header />
         <Button title="Add New Job" onPress={() => setIsAddMode(true)} />
         <JobInput
           visible={isAddMode}
