@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingLeft: 40,
     paddingRight: 40,
-    paddingBottom: 40,
+    paddingBottom: 10,
     fontSize: 18,
     color: 'grey',
     fontFamily: 'alata-regular',
