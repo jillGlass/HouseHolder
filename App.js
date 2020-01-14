@@ -106,9 +106,5 @@ const styles = StyleSheet.create({
   screen: {
     marginTop: 40
   },
-  title: {
-    marginTop: 10,
-    marginBottom: 30,
-    fontSize: 25
-  },
+  
 });
