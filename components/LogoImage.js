@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   icon: {
     resizeMode: 'contain',
     height: 60,
-    marginBottom: 40
+    marginBottom: 25
 
     
   }
