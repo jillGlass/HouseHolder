@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#bce8c8",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 10
   },
   input: {
     width: "80%",
