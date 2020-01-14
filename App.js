@@ -98,13 +98,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#bce8c8",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center", 
+    
   },
   StatusBar: {
     backgroundColor: "#bce8c8"
   },
   screen: {
-    marginTop: 40
+    marginTop: 40,
+    justifyContent: "center",
+    alignItems: "center",
   },
+  inputs: {
+    width: '60%',
+    
+    
+    
+  }
   
 });
