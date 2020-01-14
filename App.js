@@ -15,7 +15,6 @@ import {
 } from "react-native";
 import Constants from "expo-constants";
 
-
 const fetchFonts = () => {
   return Font.loadAsync({
     "alata-regular": require("./assets/fonts/Alata-Regular.ttf")
@@ -65,7 +64,11 @@ export default function App() {
         <View style={styles.screen}>
           <Header />
           <LogoImage />
-          <Button title="Add New Job" onPress={() => setIsAddMode(true)} />
+          <Button
+            style={styles.addBtn}
+            title="Add New Job"
+            onPress={() => setIsAddMode(true)}
+          />
           <JobInput
             visible={isAddMode}
             onAddJob={addJobHandler}
@@ -101,16 +104,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#bce8c8"
   },
   screen: {
-    padding: 40,
-    marginTop: 50
+    marginTop: 40
   },
   title: {
     marginTop: 10,
     marginBottom: 30,
     fontSize: 25
   },
-  addBtn: {
-    borderColor: "black",
-    borderWidth: 1
-  }
 });
