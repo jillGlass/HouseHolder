@@ -56,6 +56,8 @@ export default function App() {
     setIsAddMode(false);
   };
 
+  
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.StatusBar}>

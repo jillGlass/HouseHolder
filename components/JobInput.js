@@ -19,6 +19,14 @@ const JobInput = props => {
     setEnteredJob("");
   };
 
+  const openModal=() => {
+    this.setState({ modalVisible: true });
+  }
+
+  const closeModal=() => {
+    this.setState({ modalVisible: false });
+  }
+
   return (
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.inputContainer}>
