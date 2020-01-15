@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Modal, Button, StyleSheet } from "react-native";
+import { View, Modal, Button, StyleSheet, Text } from "react-native";
 
 const Allocation = props => {
   const [selectedName, setSelectedName] = useState("");
