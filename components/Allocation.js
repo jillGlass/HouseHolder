@@ -8,9 +8,23 @@ const Allocation = props => {
   //2 modal will show 'Who is this job for?' with 'Beau' and 'March' as options() (create modal, add logic for color to the modal)
   //3 on selection of name, modal will close and joblist will show. Each name will represent a different colour(add close modal on name button press)
 
-  const onBeau = props => {};
+  const onBeau = () => {
+    setSelectedName("Beau");
+    whichName(Beau)
+  };
 
-  const onMarch = props => {};
+  const onMarch = () => {
+    setSelectedName("March");
+    whichName(March)
+  };
+
+  const whichName =(name) => {
+      if(name === Beau) {
+          //set color to green
+      } else if (name === March) {
+          //set color to purple
+      }
+  }
 
   return (
     <Modal visible={props.visible} animationType="slide">
@@ -18,10 +32,10 @@ const Allocation = props => {
         <Text>Who is this job for?</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Beau" onPress={props.onBeau} />
+            <Button title="Beau" onPress={onBeau} />
           </View>
           <View style={styles.button}>
-            <Button title="March" onPress={props.onMarch} />
+            <Button title="March" onPress={onMarch} />
           </View>
         </View>
       </View>
@@ -30,8 +44,12 @@ const Allocation = props => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
-  allocationContainer: {},
+  allocationContainer: {
+    flex: 1,
+    backgroundColor: "#bce8c8",
+    justifyContent: "center",
+    alignItems: "center"
+  },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
