@@ -12,23 +12,20 @@ import Allocation from "./Allocation";
 const JobInput = props => {
   const [enteredJob, setEnteredJob] = useState("");
   const [isNameMode, setIsNameMode] = useState(false);
-  
-
 
   const jobInputHandler = enteredText => {
     setEnteredJob(enteredText);
   };
 
-  
-// move below to Allocation modal? Or keep here and place in a larger function?
+  const handleButtonPress = () => {
+    setIsNameMode(true);
+    addJobHandler();
+  };
+  // move below to Allocation modal? Or keep here and place in a larger function?
   const addJobHandler = () => {
     props.onAddJob(enteredJob);
     setEnteredJob("");
-    setIsNameMode(true);
   };
-
-
-  
 
   return (
     <Modal visible={props.visible} animationType="slide">
@@ -44,11 +41,9 @@ const JobInput = props => {
             <Button color="red" title="CANCEL" onPress={props.onCancel} />
           </View>
           <View style={styles.button}>
-            <Button style={styles.addBtn} title="ADD" onPress={addJobHandler} />
+            <Button style={styles.addBtn} title="ADD" onPress={handleButtonPress} />
           </View>
-          <Allocation
-          visible={isNameMode}
-          />
+          <Allocation visible={isNameMode} />
         </View>
       </View>
     </Modal>
@@ -60,11 +55,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#bce8c8",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   input: {
     width: "80%",
-    backgroundColor: '#e3e8e5',
+    backgroundColor: "#e3e8e5",
     borderColor: "black",
     borderWidth: 1,
     padding: 10,
