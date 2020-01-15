@@ -23,7 +23,7 @@ const JobInput = props => {
     setIsNameMode(true);
     addJobHandler();
   };
-
+//pass addJobHandler down as props to run after Allocation has taken place? How to get Allocation modal popping up instantly?
   const addJobHandler = () => {
     props.onAddJob(enteredJob);
     setEnteredJob("");
