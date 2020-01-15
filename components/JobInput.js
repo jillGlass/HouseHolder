@@ -13,15 +13,17 @@ const JobInput = props => {
   const [enteredJob, setEnteredJob] = useState("");
   const [isNameMode, setIsNameMode] = useState(false);
 
+  
+
   const jobInputHandler = enteredText => {
     setEnteredJob(enteredText);
   };
-
+  
   const handleButtonPress = () => {
     setIsNameMode(true);
     addJobHandler();
   };
-  // move below to Allocation modal? Or keep here and place in a larger function?
+
   const addJobHandler = () => {
     props.onAddJob(enteredJob);
     setEnteredJob("");
@@ -41,7 +43,7 @@ const JobInput = props => {
             <Button color="red" title="CANCEL" onPress={props.onCancel} />
           </View>
           <View style={styles.button}>
-            <Button style={styles.addBtn} title="ADD" onPress={handleButtonPress} />
+            <Button style={styles.addBtn} title="ADD" onPress={() => handleButtonPress()} />
           </View>
           <Allocation visible={isNameMode} />
         </View>
