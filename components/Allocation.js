@@ -8,20 +8,10 @@ const Allocation = props => {
   //2 modal will show 'Who is this job for?' with 'Beau' and 'March' as options() (create modal, add logic for color to the modal)
   //3 on selection of name, modal will close and joblist will show. Each name will represent a different colour(add close modal on name button press)
 
-  const closeAllocation = (props) => { // will this close the modal on name selection onPress?
+  const closeAllocation = (title) => { // will this close the modal on name selection onPress?
     props.onSelectName()
-    whichName(name)
+    whichName(title)
   }
-  
-  const onBeau = () => {
-    setSelectedName("Beau");
-    whichName(Beau)
-  };
-
-  const onMarch = () => {
-    setSelectedName("March");
-    whichName(March)
-  };
 
   const whichName =(name) => {
       if(name === Beau) {
@@ -37,7 +27,7 @@ const Allocation = props => {
         <Text>Who is this job for?</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Beau" onPress={() => closeAllocation(title)} />
+            <Button title="Beau" onPress={closeAllocation(title)} />
           </View>
           <View style={styles.button}>
             <Button title="March" onPress={closeAllocation(title)} />
