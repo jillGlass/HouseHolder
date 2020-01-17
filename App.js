@@ -11,7 +11,8 @@ import {
   View,
   Button,
   FlatList,
-  StatusBar
+  StatusBar,
+  SafeAreaView
 } from "react-native";
 import Constants from "expo-constants";
 
@@ -59,6 +60,7 @@ export default function App() {
   
 
   return (
+    <SafeAreaView style={{flex: 1, backgroundColor:'#bce8c8'}}>
     <View style={styles.mainContainer}>
       <View style={styles.StatusBar}>
         <StatusBar translucent barStyle="light-content" />
@@ -92,6 +94,7 @@ export default function App() {
         </View>
       </View>
     </View>
+    </SafeAreaView>
   );
 }
 
