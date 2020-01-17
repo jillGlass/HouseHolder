@@ -9,9 +9,10 @@ const Allocation = props => {
   //3 on selection of name, modal will close DONE
   //4 logic = on selection of the name that job will show as a different color than the other name
 
-const handleNamePress = () => {
+const handleNamePress = (Beau, March) => {
   createJobList()
   closeAllocation()
+  whichName(Beau, March)
 }
 
   const createJobList = () => {
@@ -20,16 +21,16 @@ const handleNamePress = () => {
 
   const closeAllocation = () => { 
     props.onSelectName()
-    // whichName(title)
+    
   }
 
-  // const whichName =(title) => {
-  //     if(title === Beau) {
-  //         //set color to green
-  //     } else if (title === March) {
-  //         //set color to purple
-  //     }
-  // }
+  const whichName =(Beau, March) => {
+      if(id === Beau) {
+          props.style.backgroundColor = 'green'
+      } else if (id === March) {
+        props.style.backgroundColor = 'red'
+      }
+  }
 
   return (
     <Modal visible={props.visible} animationType="slide">
@@ -37,10 +38,10 @@ const handleNamePress = () => {
         <Text>Who is this job for?</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Beau" onPress={handleNamePress} />
+            <Button title="Beau" onPress={() => handleNamePress(Beau)} /> //these props aren't correct
           </View>
           <View style={styles.button}>
-            <Button title="March" onPress={handleNamePress} />
+            <Button title="March" onPress={() => handleNamePress(March)} />
           </View>
         </View>
       </View>
