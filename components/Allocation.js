@@ -2,34 +2,33 @@ import React from "react";
 import { View, Modal, Button, StyleSheet, Text } from "react-native";
 
 const Allocation = props => {
-  
-
   //1 open modal (via ADD button onPress within JobInput) DONE
   //2 modal will show 'Who is this job for?' with 'Beau' and 'March' as options. DONE
   //3 on selection of name, modal will close DONE
   //4 logic = on selection of the name that job will show as a different color than the other name
 
-const handleNamePress = () => {
-  createJobList()
-  closeAllocation()
-}
+  const handleNamePress = (title, props) => {
+    createJobList();
+    closeAllocation();
+    whichName(title, props);
+  };
 
   const createJobList = () => {
-  props.onEnteredJob()
-}
+    props.onEnteredJob();
+  };
 
-  const closeAllocation = () => { 
-    props.onSelectName()
-    // whichName(title)
-  }
+  const closeAllocation = () => {
+    props.onSelectName();
+  };
 
-  // const whichName =(title) => {
-  //     if(title === Beau) {
-  //         //set color to green
-  //     } else if (title === March) {
-  //         //set color to purple
-  //     }
-  // }
+  //use useState to toggle colors instead of below?
+  const whichName = (title, props) => {
+    if (title === "Beau") {
+      props.style.backgroundColor = "#bb6be3";
+    } else if (title === "March") {
+      props.style.backgroundColor = "#e3a268";
+    }
+  };
 
   return (
     <Modal visible={props.visible} animationType="slide">
@@ -37,10 +36,10 @@ const handleNamePress = () => {
         <Text>Who is this job for?</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Beau" onPress={handleNamePress} />
+            <Button title="Beau" onPress={title => handleNamePress(title)} />
           </View>
           <View style={styles.button}>
-            <Button title="March" onPress={handleNamePress} />
+            <Button title="March" onPress={title => handleNamePress(title)} />
           </View>
         </View>
       </View>
@@ -62,6 +61,22 @@ const styles = StyleSheet.create({
   },
   button: {
     width: "40%"
+  },
+  beauInput: {
+    width: "80%",
+    backgroundColor: "#bb6be3",
+    borderColor: "black",
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 5
+  },
+  marchInput: {
+    width: "80%",
+    backgroundColor: "#e3a268",
+    borderColor: "black",
+    borderWidth: 1,
+    padding: 10,
+    marginBottom: 5
   }
 });
 
