@@ -49,7 +49,7 @@ const JobInput = props => {
             <Button
               style={styles.addBtn}
               title="ADD"
-              onPress={() => handleButtonPress()}
+              onPress={handleButtonPress}
             />
           </View>
           <Allocation
