@@ -2,6 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const JobItem = props => {
+
+  // add in logic to make listItem styles purple or green
+  
   return (
     <TouchableOpacity
       activeOpacity={0.6}

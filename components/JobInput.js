@@ -7,25 +7,30 @@ import {
   Modal,
   Slider
 } from "react-native";
+import Allocation from "./Allocation";
 
 const JobInput = props => {
   const [enteredJob, setEnteredJob] = useState("");
+  const [isNameMode, setIsNameMode] = useState(false);
+
+  
+  const handleAllocationModal = () => {
+    setIsNameMode(false)
+  }
+
   const jobInputHandler = enteredText => {
     setEnteredJob(enteredText);
   };
-
+  
+  const handleButtonPress = () => {
+    addJobHandler();
+    setIsNameMode(true);
+  };
+//pass addJobHandler down as props to run after Allocation has taken place? How to get Allocation modal popping up instantly?
   const addJobHandler = () => {
     props.onAddJob(enteredJob);
     setEnteredJob("");
   };
-
-  const openModal=() => {
-    this.setState({ modalVisible: true });
-  }
-
-  const closeModal=() => {
-    this.setState({ modalVisible: false });
-  }
 
   return (
     <Modal visible={props.visible} animationType="slide">
@@ -41,8 +46,11 @@ const JobInput = props => {
             <Button color="red" title="CANCEL" onPress={props.onCancel} />
           </View>
           <View style={styles.button}>
-            <Button style={styles.addBtn} title="ADD" onPress={addJobHandler} />
+            <Button style={styles.addBtn} title="ADD" onPress={() => handleButtonPress()} />
           </View>
+          <Allocation visible={isNameMode}
+           onSelectName={handleAllocationModal}
+           />
         </View>
       </View>
     </Modal>
@@ -54,11 +62,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#bce8c8",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   input: {
     width: "80%",
-    backgroundColor: '#e3e8e5',
+    backgroundColor: "#e3e8e5",
     borderColor: "black",
     borderWidth: 1,
     padding: 10,
