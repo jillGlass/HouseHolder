@@ -27,10 +27,10 @@ const Allocation = props => {
         <Text>Who is this job for?</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Beau" onPress={closeAllocation()} />
+            <Button title="Beau" onPress={closeAllocation} />
           </View>
           <View style={styles.button}>
-            <Button title="March" onPress={closeAllocation()} />
+            <Button title="March" onPress={closeAllocation} />
           </View>
         </View>
       </View>
