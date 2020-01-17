@@ -52,7 +52,7 @@ const JobInput = props => {
             visible={isNameMode}
             onSelectName={handleAllocationModal}
             onEnteredJob={addJobHandler}
-            style={styles.inputContainer}
+            style={styles.input}
           />
         </View>
       </View>

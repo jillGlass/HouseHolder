@@ -9,10 +9,11 @@ const Allocation = props => {
   //3 on selection of name, modal will close DONE
   //4 logic = on selection of the name that job will show as a different color than the other name
 
-const handleNamePress = (Beau, March) => {
+
+const handleNamePress = (title) => {
   createJobList()
   closeAllocation()
-  whichName(Beau, March)
+  whichName(title)
 }
 
   const createJobList = () => {
@@ -24,10 +25,10 @@ const handleNamePress = (Beau, March) => {
     
   }
 
-  const whichName =(Beau, March) => {
-      if(id === Beau) {
+  const whichName =(title) => {
+      if(title === 'Beau') {
           props.style.backgroundColor = 'green'
-      } else if (id === March) {
+      } else if (title === 'March') {
         props.style.backgroundColor = 'red'
       }
   }
@@ -38,10 +39,10 @@ const handleNamePress = (Beau, March) => {
         <Text>Who is this job for?</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Beau" onPress={() => handleNamePress(Beau)} /> //these props aren't correct
+            <Button title="Beau" onPress={(title) => handleNamePress(title)} />
           </View>
           <View style={styles.button}>
-            <Button title="March" onPress={() => handleNamePress(March)} />
+            <Button title="March" onPress={(title) => handleNamePress(title)} />
           </View>
         </View>
       </View>
