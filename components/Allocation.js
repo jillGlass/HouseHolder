@@ -4,9 +4,10 @@ import { View, Modal, Button, StyleSheet, Text } from "react-native";
 const Allocation = props => {
   
 
-  //1 open modal (via ADD button onPress within JobInput)
-  //2 modal will show 'Who is this job for?' with 'Beau' and 'March' as options. (create modal, add logic for color to the modal)
-  //3 on selection of name, modal will close and joblist will show. Each name will represent a different colour(add close modal on name button press)
+  //1 open modal (via ADD button onPress within JobInput) DONE
+  //2 modal will show 'Who is this job for?' with 'Beau' and 'March' as options. DONE
+  //3 on selection of name, modal will close DONE
+  //4 logic = on selection of the name that job will show as a different color than the other name
 
 const handleNamePress = () => {
   createJobList()
