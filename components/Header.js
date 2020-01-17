@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <View>
     <Text style={styles.header}>HouseHolder</Text>
-    <Text style={styles.subHeader}>Track your household chores</Text>
+    <Text style={styles.subHeader}>Beau and March's chores!</Text>
     </View>
   );
 };

@@ -14,14 +14,17 @@ const JobInput = props => {
   const [isNameMode, setIsNameMode] = useState(false);
 
   
+  const handleAllocationModal = () => {
+    setIsNameMode(false)
+  }
 
   const jobInputHandler = enteredText => {
     setEnteredJob(enteredText);
   };
   
   const handleButtonPress = () => {
-    setIsNameMode(true);
     addJobHandler();
+    setIsNameMode(true);
   };
 //pass addJobHandler down as props to run after Allocation has taken place? How to get Allocation modal popping up instantly?
   const addJobHandler = () => {
@@ -46,7 +49,8 @@ const JobInput = props => {
             <Button style={styles.addBtn} title="ADD" onPress={() => handleButtonPress()} />
           </View>
           <Allocation visible={isNameMode}
-          onSelectName={setIsNameMode(false)} />
+           onSelectName={handleAllocationModal}
+           />
         </View>
       </View>
     </Modal>
