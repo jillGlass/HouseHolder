@@ -45,7 +45,8 @@ const JobInput = props => {
           <View style={styles.button}>
             <Button style={styles.addBtn} title="ADD" onPress={() => handleButtonPress()} />
           </View>
-          <Allocation visible={isNameMode} />
+          <Allocation visible={isNameMode}
+          onSelectName={setIsNameMode(false)} />
         </View>
       </View>
     </Modal>
