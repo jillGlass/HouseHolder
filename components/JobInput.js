@@ -4,8 +4,7 @@ import {
   TextInput,
   Button,
   StyleSheet,
-  Modal,
-  Slider
+  Modal
 } from "react-native";
 import Allocation from "./Allocation";
 
@@ -13,11 +12,6 @@ const JobInput = props => {
   const [enteredJob, setEnteredJob] = useState("");
   const [isNameMode, setIsNameMode] = useState(false);
 
-  //break out the below function and move addJobHander to Allocation under name chosen
-  // const handleButtonPress = () => {
-  //   addJobHandler();
-  //   setIsNameMode(true);
-  // };
 
   const handleAllocationModal = () => {
     setIsNameMode(false);
