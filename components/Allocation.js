@@ -4,20 +4,16 @@ import { View, Modal, Button, StyleSheet, Text } from "react-native";
 const Allocation = props => {
 
   const handleNamePressBeau = () => {
-    createJobList();
     closeAllocation();
     // whichName(title, props);
   };
 
   const handleNamePressMarch = () => {
-    createJobList();
     closeAllocation();
     // whichName(title, props);
   };
 
-  const createJobList = () => {
-    props.onEnteredJob();
-  };
+  
 
   const closeAllocation = () => {
     props.onSelectName();
