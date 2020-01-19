@@ -91,6 +91,7 @@ export default function App() {
                 onPress={() => setIsNameMode(true)}
                 onDelete={removeJobHandler}
                 title={itemData.item.value}
+                style={styles.listItem}
               />
             )}
           />
@@ -99,6 +100,7 @@ export default function App() {
         <Allocation
             visible={isNameMode}
             onSelectName={handleAllocationModal}
+            style={styles.listItem}
           />
       </View>
     </SafeAreaView>
@@ -122,5 +124,15 @@ const styles = StyleSheet.create({
   },
   inputs: {
     width: "100%"
+  },
+  listItem: {
+    flex: 1,
+    width: '100%',
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: "lightgrey",
+    borderColor: "black",
+    borderWidth: 1,
+    
   }
 });

@@ -7,7 +7,7 @@ const JobItem = props => {
     <TouchableOpacity
       activeOpacity={0.6}
       onLongPress={props.onDelete.bind(this, props.id)}
-      style={styles.listItem}
+      style={props.style}
       onPress={props.onPress}
     >
       <Text>{props.title}</Text>
@@ -15,17 +15,17 @@ const JobItem = props => {
   );
 };
 
-const styles = StyleSheet.create({
-  listItem: {
-    flex: 1,
-    width: '100%',
-    padding: 10,
-    marginTop: 10,
-    backgroundColor: "lightgrey",
-    borderColor: "black",
-    borderWidth: 1,
+// const styles = StyleSheet.create({
+//   listItem: {
+//     flex: 1,
+//     width: '100%',
+//     padding: 10,
+//     marginTop: 10,
+//     backgroundColor: "lightgrey",
+//     borderColor: "black",
+//     borderWidth: 1,
     
-  }
-});
+//   }
+// });
 
 export default JobItem;

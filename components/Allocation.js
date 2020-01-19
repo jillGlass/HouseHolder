@@ -5,12 +5,10 @@ const Allocation = props => {
 
   const handleNamePressBeau = () => {
     closeAllocation();
-    // whichName(title, props);
   };
 
   const handleNamePressMarch = () => {
     closeAllocation();
-    // whichName(title, props);
   };
 
   
@@ -19,14 +17,6 @@ const Allocation = props => {
     props.onSelectName();
   };
 
-  //use useState to toggle colors instead of below?
-  // const whichName = (title, props) => {
-  //   if (title === "Beau") {
-  //     props.style.backgroundColor = "#bb6be3";
-  //   } else if (title === "March") {
-  //     props.style.backgroundColor = "#e3a268";
-  //   }
-  // };
 
   return (
     <Modal visible={props.visible} animationType="slide">
