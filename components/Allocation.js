@@ -1,16 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, Modal, Button, StyleSheet, Text } from "react-native";
 
 const Allocation = props => {
-  //1 open modal (via ADD button onPress within JobInput) DONE
-  //2 modal will show 'Who is this job for?' with 'Beau' and 'March' as options. DONE
-  //3 on selection of name, modal will close DONE
+  
   //4 logic = on selection of the name that job will show as a different color than the other name
 
-  const handleNamePress = (title, props) => {
+  
+
+  const handleNamePressBeau = () => {
     createJobList();
+    props.stateBeau(props.style.backgroundColor = "#bb6be3")
     closeAllocation();
-    whichName(title, props);
+    // whichName(title, props);
+  };
+
+  const handleNamePressMarch = () => {
+    createJobList();
+    props.stateMarch(props.style.backgroundColor = "#e3a268")
+    closeAllocation();
+    // whichName(title, props);
   };
 
   const createJobList = () => {
@@ -22,13 +30,13 @@ const Allocation = props => {
   };
 
   //use useState to toggle colors instead of below?
-  const whichName = (title, props) => {
-    if (title === "Beau") {
-      props.style.backgroundColor = "#bb6be3";
-    } else if (title === "March") {
-      props.style.backgroundColor = "#e3a268";
-    }
-  };
+  // const whichName = (title, props) => {
+  //   if (title === "Beau") {
+  //     props.style.backgroundColor = "#bb6be3";
+  //   } else if (title === "March") {
+  //     props.style.backgroundColor = "#e3a268";
+  //   }
+  // };
 
   return (
     <Modal visible={props.visible} animationType="slide">
@@ -36,10 +44,10 @@ const Allocation = props => {
         <Text>Who is this job for?</Text>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Beau" onPress={title => handleNamePress(title)} />
+            <Button title="Beau" onPress={() => handleNamePressBeau()} />
           </View>
           <View style={styles.button}>
-            <Button title="March" onPress={title => handleNamePress(title)} />
+            <Button title="March" onPress={() => handleNamePressMarch()} />
           </View>
         </View>
       </View>
