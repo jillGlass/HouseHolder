@@ -88,9 +88,9 @@ export default function App() {
             renderItem={itemData => (
               <JobItem
                 id={itemData.item.id}
+                onPress={() => setIsNameMode(true)}
                 onDelete={removeJobHandler}
                 title={itemData.item.value}
-                onPress={() => setIsNameMode(true)}
               />
             )}
           />
@@ -121,6 +121,6 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   inputs: {
-    width: "80%"
+    width: "100%"
   }
 });
