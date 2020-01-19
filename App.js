@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import JobItem from "./components/JobItem";
 import JobInput from "./components/JobInput";
 import Header from "./components/Header";
+// import Allocation from "./Allocation";
 import LogoImage from "./components/LogoImage";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
@@ -26,6 +27,7 @@ export default function App() {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [allJobs, setAllJobs] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
+  const [isNameMode, setIsNameMode] = useState(false);
 
   if (!dataLoaded) {
     return (
@@ -57,7 +59,9 @@ export default function App() {
     setIsAddMode(false);
   };
 
-  
+  const handleAllocationModal = () => {
+    setIsNameMode(false);
+  };
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor:'#bce8c8'}}>
@@ -88,9 +92,18 @@ export default function App() {
                 id={itemData.item.id}
                 onDelete={removeJobHandler}
                 title={itemData.item.value}
+                onPress={() => setIsNameMode(true)}
               />
             )}
           />
+          {/* <Allocation
+            visible={isNameMode}
+            onSelectName={handleAllocationModal}
+            onEnteredJob={addJobHandler}
+            style={styles.input}
+            stateMarch={setSelectColourMarch}
+            stateBeau={setSelectColourBeau}
+          /> */}
         </View>
       </View>
     </View>

@@ -6,23 +6,14 @@ import {
   StyleSheet,
   Modal
 } from "react-native";
-import Allocation from "./Allocation";
+
 
 const JobInput = props => {
   const [enteredJob, setEnteredJob] = useState("");
-  const [isNameMode, setIsNameMode] = useState(false);
-  const [selectColourBeau, setSelectColourBeau] = useState()
-  const [selectColourMarch, setSelectColourMarch] = useState()
-
-
-  const handleAllocationModal = () => {
-    setIsNameMode(false);
-  };
-
+  
   const jobInputHandler = enteredText => {
     setEnteredJob(enteredText);
   };
-
 
   const addJobHandler = () => {
     props.onAddJob(enteredJob);
@@ -46,18 +37,9 @@ const JobInput = props => {
             <Button
               style={styles.addBtn}
               title="ADD"
-              onPress={() => setIsNameMode(true)}
-
+              onPress={addJobHandler}
             />
           </View>
-          <Allocation
-            visible={isNameMode}
-            onSelectName={handleAllocationModal}
-            onEnteredJob={addJobHandler}
-            style={styles.input}
-            stateMarch={setSelectColourMarch}
-            stateBeau={setSelectColourBeau}
-          />
         </View>
       </View>
     </Modal>

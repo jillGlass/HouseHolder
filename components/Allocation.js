@@ -2,10 +2,7 @@ import React, {useState} from "react";
 import { View, Modal, Button, StyleSheet, Text } from "react-native";
 
 const Allocation = props => {
-  
-  //4 logic = on selection of the name that job will show as a different color than the other name
 
-  
 
   const handleNamePressBeau = () => {
     createJobList();
