@@ -2,20 +2,18 @@ import React, { useState } from "react";
 import JobItem from "./components/JobItem";
 import JobInput from "./components/JobInput";
 import Header from "./components/Header";
-// import Allocation from "./Allocation";
+import Allocation from "./components/Allocation"
 import LogoImage from "./components/LogoImage";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import {
   StyleSheet,
-  Text,
   View,
   Button,
   FlatList,
   StatusBar,
   SafeAreaView
 } from "react-native";
-import Constants from "expo-constants";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -64,11 +62,11 @@ export default function App() {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor:'#bce8c8'}}>
-    <View style={styles.mainContainer}>
-      <View style={styles.StatusBar}>
-        <StatusBar translucent barStyle="light-content" />
-
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#bce8c8" }}>
+      <View style={styles.mainContainer}>
+        <View style={styles.StatusBar}>
+          <StatusBar translucent barStyle="light-content" />
+        </View>
         <View style={styles.screen}>
           <Header />
           <LogoImage />
@@ -96,17 +94,13 @@ export default function App() {
               />
             )}
           />
-          {/* <Allocation
+          
+        </View>
+        <Allocation
             visible={isNameMode}
             onSelectName={handleAllocationModal}
-            onEnteredJob={addJobHandler}
-            style={styles.input}
-            stateMarch={setSelectColourMarch}
-            stateBeau={setSelectColourBeau}
-          /> */}
-        </View>
+          />
       </View>
-    </View>
     </SafeAreaView>
   );
 }
@@ -116,8 +110,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#bce8c8",
     justifyContent: "center",
-    alignItems: "center", 
-    
+    alignItems: "center"
   },
   StatusBar: {
     backgroundColor: "#bce8c8"
@@ -125,13 +118,9 @@ const styles = StyleSheet.create({
   screen: {
     marginTop: 40,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   inputs: {
-    width: '60%',
-    
-    
-    
+    width: "80%"
   }
-  
 });

@@ -8,7 +8,7 @@ const JobItem = props => {
   return (
     <TouchableOpacity
       activeOpacity={0.6}
-      onPress={props.onDelete.bind(this, props.id)}
+      onLongPress={props.onDelete.bind(this, props.id)}
       style={styles.listItem}
     >
       <Text>{props.title}</Text>
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
     borderColor: "black",
     borderWidth: 1,
+    width: '100%'
     
   }
 });
