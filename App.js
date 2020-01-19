@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import JobItem from "./components/JobItem";
 import JobInput from "./components/JobInput";
 import Header from "./components/Header";
+import Allocation from "./components/Allocation"
 import LogoImage from "./components/LogoImage";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import {
   StyleSheet,
-  Text,
   View,
   Button,
   FlatList,
   StatusBar,
   SafeAreaView
 } from "react-native";
-import Constants from "expo-constants";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -26,6 +25,7 @@ export default function App() {
   const [dataLoaded, setDataLoaded] = useState(false);
   const [allJobs, setAllJobs] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
+  const [isNameMode, setIsNameMode] = useState(false);
 
   if (!dataLoaded) {
     return (
@@ -57,14 +57,16 @@ export default function App() {
     setIsAddMode(false);
   };
 
-  
+  const handleAllocationModal = () => {
+    setIsNameMode(false);
+  };
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor:'#bce8c8'}}>
-    <View style={styles.mainContainer}>
-      <View style={styles.StatusBar}>
-        <StatusBar translucent barStyle="light-content" />
-
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#bce8c8" }}>
+      <View style={styles.mainContainer}>
+        <View style={styles.StatusBar}>
+          <StatusBar translucent barStyle="light-content" />
+        </View>
         <View style={styles.screen}>
           <Header />
           <LogoImage />
@@ -86,14 +88,19 @@ export default function App() {
             renderItem={itemData => (
               <JobItem
                 id={itemData.item.id}
+                onPress={() => setIsNameMode(true)}
                 onDelete={removeJobHandler}
                 title={itemData.item.value}
               />
             )}
           />
+          
         </View>
+        <Allocation
+            visible={isNameMode}
+            onSelectName={handleAllocationModal}
+          />
       </View>
-    </View>
     </SafeAreaView>
   );
 }
@@ -103,8 +110,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#bce8c8",
     justifyContent: "center",
-    alignItems: "center", 
-    
+    alignItems: "center"
   },
   StatusBar: {
     backgroundColor: "#bce8c8"
@@ -112,13 +118,9 @@ const styles = StyleSheet.create({
   screen: {
     marginTop: 40,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   inputs: {
-    width: '60%',
-    
-    
-    
+    width: "100%"
   }
-  
 });
