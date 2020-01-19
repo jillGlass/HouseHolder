@@ -11,6 +11,8 @@ import Allocation from "./Allocation";
 const JobInput = props => {
   const [enteredJob, setEnteredJob] = useState("");
   const [isNameMode, setIsNameMode] = useState(false);
+  const [selectColourBeau, setSelectColourBeau] = useState()
+  const [selectColourMarch, setSelectColourMarch] = useState()
 
 
   const handleAllocationModal = () => {
@@ -53,6 +55,8 @@ const JobInput = props => {
             onSelectName={handleAllocationModal}
             onEnteredJob={addJobHandler}
             style={styles.input}
+            stateMarch={setSelectColourMarch}
+            stateBeau={setSelectColourBeau}
           />
         </View>
       </View>
