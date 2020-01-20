@@ -36,6 +36,10 @@ export default function App() {
     );
   }
 
+  const setIsMarchColor = () => {
+    styles.listItem.backgroundColor ='red'
+  }
+
   const addJobHandler = jobTitle => {
     if (jobTitle.length === 0) {
       return;
@@ -57,9 +61,6 @@ export default function App() {
     setIsAddMode(false);
   };
 
-  const handleAllocationModal = () => {
-    setIsNameMode(false);
-  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#bce8c8" }}>
@@ -91,6 +92,7 @@ export default function App() {
                 onPress={() => setIsNameMode(true)}
                 onDelete={removeJobHandler}
                 title={itemData.item.value}
+                style={styles.listItem}
               />
             )}
           />
@@ -98,7 +100,9 @@ export default function App() {
         </View>
         <Allocation
             visible={isNameMode}
-            onSelectName={handleAllocationModal}
+            onSelectName={() => setIsNameMode(false)}
+            style={styles.listItem}
+            setIsMarchColor={() => setIsMarchColor()}
           />
       </View>
     </SafeAreaView>
@@ -122,5 +126,17 @@ const styles = StyleSheet.create({
   },
   inputs: {
     width: "100%"
+  },
+  listItem: {
+    flex: 1,
+    width: '100%',
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: "lightgrey",
+    borderColor: "black",
+    borderWidth: 1,
+    
   }
 });
+
+

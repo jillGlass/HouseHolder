@@ -4,33 +4,21 @@ import { View, Modal, Button, StyleSheet, Text } from "react-native";
 const Allocation = props => {
 
   const handleNamePressBeau = () => {
-    createJobList();
+    
     closeAllocation();
-    // whichName(title, props);
   };
 
   const handleNamePressMarch = () => {
-    createJobList();
+    props.setIsMarchColor()
     closeAllocation();
-    // whichName(title, props);
   };
 
-  const createJobList = () => {
-    props.onEnteredJob();
-  };
+  
 
   const closeAllocation = () => {
     props.onSelectName();
   };
 
-  //use useState to toggle colors instead of below?
-  // const whichName = (title, props) => {
-  //   if (title === "Beau") {
-  //     props.style.backgroundColor = "#bb6be3";
-  //   } else if (title === "March") {
-  //     props.style.backgroundColor = "#e3a268";
-  //   }
-  // };
 
   return (
     <Modal visible={props.visible} animationType="slide">

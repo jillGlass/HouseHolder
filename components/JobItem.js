@@ -2,14 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const JobItem = props => {
-
-  // add in logic to make listItem styles purple or green
   
   return (
     <TouchableOpacity
       activeOpacity={0.6}
       onLongPress={props.onDelete.bind(this, props.id)}
-      style={styles.listItem}
+      style={props.style}
       onPress={props.onPress}
     >
       <Text>{props.title}</Text>
@@ -17,17 +15,7 @@ const JobItem = props => {
   );
 };
 
-const styles = StyleSheet.create({
-  listItem: {
-    flex: 1,
-    width: '100%',
-    padding: 10,
-    marginTop: 10,
-    backgroundColor: "lightgrey",
-    borderColor: "black",
-    borderWidth: 1,
-    
-  }
-});
+// add inline style to TouchableOpacity.  If beau = green : march = red
+//className={this.toggleColor(bird)}
 
 export default JobItem;
