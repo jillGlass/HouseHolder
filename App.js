@@ -36,6 +36,10 @@ export default function App() {
     );
   }
 
+  const setIsMarchColor = () => {
+    styles.listItem.backgroundColor ='red'
+  }
+
   const addJobHandler = jobTitle => {
     if (jobTitle.length === 0) {
       return;
@@ -57,9 +61,6 @@ export default function App() {
     setIsAddMode(false);
   };
 
-  const handleAllocationModal = () => {
-    setIsNameMode(false);
-  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#bce8c8" }}>
@@ -99,8 +100,9 @@ export default function App() {
         </View>
         <Allocation
             visible={isNameMode}
-            onSelectName={handleAllocationModal}
+            onSelectName={() => setIsNameMode(false)}
             style={styles.listItem}
+            setIsMarchColor={() => setIsMarchColor()}
           />
       </View>
     </SafeAreaView>
@@ -136,3 +138,5 @@ const styles = StyleSheet.create({
     
   }
 });
+
+

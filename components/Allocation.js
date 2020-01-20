@@ -4,10 +4,12 @@ import { View, Modal, Button, StyleSheet, Text } from "react-native";
 const Allocation = props => {
 
   const handleNamePressBeau = () => {
+    
     closeAllocation();
   };
 
   const handleNamePressMarch = () => {
+    props.setIsMarchColor()
     closeAllocation();
   };
 

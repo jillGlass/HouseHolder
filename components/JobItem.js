@@ -15,17 +15,7 @@ const JobItem = props => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   listItem: {
-//     flex: 1,
-//     width: '100%',
-//     padding: 10,
-//     marginTop: 10,
-//     backgroundColor: "lightgrey",
-//     borderColor: "black",
-//     borderWidth: 1,
-    
-//   }
-// });
+// add inline style to TouchableOpacity.  If beau = green : march = red
+//className={this.toggleColor(bird)}
 
 export default JobItem;
