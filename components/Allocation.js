@@ -4,12 +4,14 @@ import { View, Modal, Button, StyleSheet, Text } from "react-native";
 const Allocation = props => {
 
   const handleNamePressBeau = () => {
-    
+    const {jobId, setIsBeauColor} = props;
+    setIsBeauColor(jobId)
     closeAllocation();
   };
 
   const handleNamePressMarch = () => {
-    props.setIsMarchColor()
+    const {jobId, setIsMarchColor}= props;
+    setIsMarchColor(jobId)
     closeAllocation();
   };
 

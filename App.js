@@ -6,6 +6,7 @@ import Allocation from "./components/Allocation"
 import LogoImage from "./components/LogoImage";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
+import _ from 'lodash';
 import {
   StyleSheet,
   View,
@@ -26,6 +27,7 @@ export default function App() {
   const [allJobs, setAllJobs] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
   const [isNameMode, setIsNameMode] = useState(false);
+  const [currentJobId, setCurrentJobId] = useState(null);
 
   if (!dataLoaded) {
     return (
@@ -36,8 +38,20 @@ export default function App() {
     );
   }
 
-  const setIsMarchColor = () => {
-    styles.listItem.backgroundColor ='red'
+  const setIsMarchColor = (id) => {
+    const job=_.find(allJobs,job=> job.id === id);
+    if(job) job.owner = 'March';
+    setAllJobs(allJobs);
+    setIsAddMode(false);
+    console.log(allJobs);
+  }
+
+  const setIsBeauColor = (id) => {
+    const job=_.find(allJobs,job=> job.id === id);
+    if(job) job.owner = 'Beau';
+    setAllJobs(allJobs);
+    setIsAddMode(false);
+    console.log(allJobs);
   }
 
   const addJobHandler = jobTitle => {
@@ -89,10 +103,13 @@ export default function App() {
             renderItem={itemData => (
               <JobItem
                 id={itemData.item.id}
-                onPress={() => setIsNameMode(true)}
+                onPress={() => {
+                  setIsNameMode(true);
+                  setCurrentJobId(itemData.item.id);
+                }}
                 onDelete={removeJobHandler}
                 title={itemData.item.value}
-                style={styles.listItem}
+                style={itemData.item.owner? itemData.item.owner==='Beau' ? styles.beauItem : styles.marchItem : styles.listItem}
               />
             )}
           />
@@ -102,7 +119,9 @@ export default function App() {
             visible={isNameMode}
             onSelectName={() => setIsNameMode(false)}
             style={styles.listItem}
-            setIsMarchColor={() => setIsMarchColor()}
+            setIsMarchColor={setIsMarchColor}
+            setIsBeauColor={setIsBeauColor}
+            jobId={currentJobId}
           />
       </View>
     </SafeAreaView>
@@ -136,6 +155,24 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 1,
     
+  },
+  beauItem:{
+    flex: 1,
+    width: '100%',
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: "lightblue",
+    borderColor: "black",
+    borderWidth: 1,
+  }, 
+  marchItem:{
+    flex: 1,
+    width: '100%',
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: "pink",
+    borderColor: "black",
+    borderWidth: 1,
   }
 });
 
