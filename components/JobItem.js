@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
 const JobItem = props => {
   
@@ -15,7 +15,5 @@ const JobItem = props => {
   );
 };
 
-// add inline style to TouchableOpacity.  If beau = green : march = red
-//className={this.toggleColor(bird)}
 
 export default JobItem;

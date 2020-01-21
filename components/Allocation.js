@@ -4,23 +4,20 @@ import { View, Modal, Button, StyleSheet, Text } from "react-native";
 const Allocation = props => {
 
   const handleNamePressBeau = () => {
-    const {jobId, setIsBeauColor} = props;
-    setIsBeauColor(jobId)
+    const { jobId, setIsBeauColor } = props;
+    setIsBeauColor(jobId); // pass jobId to Beau so color can be changed
     closeAllocation();
   };
 
   const handleNamePressMarch = () => {
-    const {jobId, setIsMarchColor}= props;
-    setIsMarchColor(jobId)
+    const { jobId, setIsMarchColor } = props;
+    setIsMarchColor(jobId);
     closeAllocation();
   };
-
-  
 
   const closeAllocation = () => {
     props.onSelectName();
   };
-
 
   return (
     <Modal visible={props.visible} animationType="slide">
