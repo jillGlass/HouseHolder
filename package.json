@@ -20,5 +20,18 @@
     "babel-preset-expo": "~8.0.0",
     "@babel/core": "^7.0.0"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "name": "HouseHolder",
+    "icon": "./appstore.png",
+    "version": "1.0.0",
+    "slug": "HouseHolder",
+    "sdkVersion": "~36.0.0",
+    "ios": {
+    "bundleIdentifier": "com.companyname.appname"
+},
+"android": {
+"package": "com.companyname.appname"
+}
+}
 }
